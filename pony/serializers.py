@@ -24,6 +24,6 @@ class ProductCreateAndListSerializer(serializers.ModelSerializer):
 
     def validate(self, attrs):
         price = attrs.get('price', 0)
-        if price <=0:
+        if price <= 0:
             raise ValidationError('price might be higher than 0')
         return attrs
