@@ -7,7 +7,7 @@ from shop.serializers import ProductCreateAndListSerializer
 from shop.serializers import ProductSerializer
 
 
-class ProductDetailMixin(mixins.RetrieveModelMixin, GenericAPIView):
+class ProductDetailMixin(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin, GenericAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
