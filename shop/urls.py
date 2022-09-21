@@ -1,8 +1,11 @@
 from django.urls import path
 
-from . import views
+from .views import home, HomeApi, HomeMixinApiView, ProductMixin, ProductDetailMixin
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('1/', views.HomeApi.as_view()),
+    path('', home, name='home'),
+    path('category/', HomeApi.as_view()),
+    path('category_create/', HomeMixinApiView.as_view()),
+    path('products/', ProductMixin.as_view()),
+    path('products/<int:pk>/', ProductDetailMixin.as_view()),
 ]
